@@ -1,0 +1,16 @@
+FROM python:3.8
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+
+RUN pip install -r requirements.txt
+
+COPY . .
+
+# Exponer el puerto 8080 para la aplicación Flask
+EXPOSE 3002
+
+# Comando para ejecutar la aplicación Flask
+CMD ["python", "api.py"]

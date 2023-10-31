@@ -1,0 +1,16 @@
+FROM golang:1.18
+
+WORKDIR /app
+
+COPY . .
+
+RUN go get -d -v ./...
+RUN go install -v ./...
+
+# Especifica el comando por defecto para ejecutar la aplicación
+CMD ["go", "run", "Main.go"]
+
+# Expone el puerto en el que la aplicación escucha
+EXPOSE 3000
+
+
